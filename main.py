@@ -1,4 +1,3 @@
-# Пользовательский интерфейс
 import pygame
 import pygame.mixer
 from random import randint
@@ -6,12 +5,17 @@ from random import randint
 pygame.init()
 
 WIDTH, HEIGHT = 800, 600
+window = pygame.display.set_mode((WIDTH, HEIGHT))
+background_image = pygame.image.load("PNG/maps/map1.png")
+window.blit(background_image, (0, 0))
+pygame.display.update()
 FPS = 60
 TILE = 32
 
 pygame.display.set_caption("Tank1990")
 
-window = pygame.display.set_mode((WIDTH, HEIGHT))
+
+
 clock = pygame.time.Clock()
 
 DIRECTS = [[0, -1], [1, 0], [0, 1], [-1, 0]]
@@ -31,6 +35,7 @@ imgBangs = [
     pygame.image.load('PNG/bang/bang2.png'),
     pygame.image.load('PNG/bang/bang3.png'),
 ]
+
 
 DIRECTS = [[0, -1], [1, 0], [0, 1], [-1, 0]]
 
