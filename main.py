@@ -6,19 +6,13 @@ pygame.init()
 
 WIDTH, HEIGHT = 800, 600
 window = pygame.display.set_mode((WIDTH, HEIGHT))
-background_image = pygame.image.load("PNG/maps/map1.png")
-window.blit(background_image, (0, 0))
 pygame.display.update()
 FPS = 60
 TILE = 32
 
 pygame.display.set_caption("Tank1990")
 
-
-
 clock = pygame.time.Clock()
-
-DIRECTS = [[0, -1], [1, 0], [0, 1], [-1, 0]]
 
 fontUI = pygame.font.Font(None, 30)
 
@@ -38,6 +32,8 @@ imgBangs = [
 
 
 DIRECTS = [[0, -1], [1, 0], [0, 1], [-1, 0]]
+
+background_image = pygame.image.load("PNG/maps/Map1.png")
 
 pygame.mixer.music.play(-1)
 class UI:
@@ -150,7 +146,7 @@ class Bullet:
                     break
 
     def draw(self):
-        pygame.draw.circle(window, 'yellow', (self.px, self.py), 2)
+        pygame.draw.circle(window, 'red', (self.px, self.py), 2)
 
 
 class Bang:
@@ -217,11 +213,12 @@ while play:
 
     keys = pygame.key.get_pressed()
 
+    # Рисование заднего фона
+    window.blit(background_image, (0, 0))
     for bullet in bullets: bullet.update()
     for obj in objects: obj.update()
     ui.update()
 
-    window.fill('black')
     for bullet in bullets: bullet.draw()
     for obj in objects: obj.draw()
     ui.draw()
